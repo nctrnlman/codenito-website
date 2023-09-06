@@ -1,10 +1,11 @@
 import React from 'react'
+import Navbar from "./component/Navbar";
+import { Route, Routes } from "react-router-dom";
 
 function App() {
   return (
-    <div className='flex justify-center bg-black text-[#ca2]'>
-      <h1> codenito test tailwind</h1>
-    </div>
+  
+    <Navbar/>
   )
 }
 
