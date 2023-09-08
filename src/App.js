@@ -1,11 +1,22 @@
 import React from 'react'
 import Navbar from "./component/Navbar";
-import { Route, Routes } from "react-router-dom";
+import Footer from './component/Footer';
+// import { Route, Routes } from "react-router-dom";
 
 function App() {
   return (
   
-    <Navbar/>
+    <div>
+    <Navbar />
+    {/* <Routes>
+      <Route path="/" element={</>} />
+      <Route path="/service" element={</>} />
+      <Route path="/contact" element={</>} />
+     
+    </Routes> */}
+    
+    <Footer/>
+  </div>
   )
 }
 
