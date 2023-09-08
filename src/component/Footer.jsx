@@ -1,5 +1,5 @@
 import React from "react";
-import Image1 from "../assets/logo-cn/logo-light.png";
+import Image1 from "../assets/logo-cn/transparant-icon.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faInstagram } from "@fortawesome/free-brands-svg-icons";
 
