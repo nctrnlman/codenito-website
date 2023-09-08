@@ -31,7 +31,7 @@ function Navbar() {
           </div>
 
           {/* Center the logo */}
-          <div className="logo flex items-center justify-center lg:flex lg:items-center lg:justify-center lg:ml-56">
+          <div className="logo flex items-center justify-center lg:flex lg:items-center lg:justify-center lg:ml-[250px]">
             <img src={Image1} alt="Codenito Logo" className="h-10" />
           </div>
 
