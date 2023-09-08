@@ -5,7 +5,7 @@ import { faInstagram } from "@fortawesome/free-brands-svg-icons";
 
 const Footer = () => {
   return (
-    <footer className="bg-[#151D20] text-white py-12">
+    <footer className="bg-[#151D20] text-white py-12 absolute inset-x-0 bottom-0">
       <div className="container mx-auto">
         <div className="flex flex-col items-center">
           <img src={Image1} alt="Codenito Logo" className="w-32 mb-4" />
