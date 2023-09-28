@@ -1,23 +1,14 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import "mdb-react-ui-kit/dist/css/mdb.min.css";
+import Review from "../../codenito-website/src/pages/Review";
+import "./App.css"; // Import your custom CSS file
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div className="center-container">
+        <Review /> {/* Render the Review component */}
+      </div>
     </div>
   );
 }
