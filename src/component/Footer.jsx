@@ -5,7 +5,7 @@ import { faInstagram } from "@fortawesome/free-brands-svg-icons";
 
 const Footer = () => {
   return (
-    <footer className="bg-[#151D20] text-white py-12 absolute inset-x-0 bottom-0">
+    <footer className="bg-[#151D20] text-white py-12 inset-x-0 bottom-0">
       <div className="container mx-auto">
         <div className="flex flex-col items-center">
           <img src={Image1} alt="Codenito Logo" className="w-32 mb-4" />
@@ -15,18 +15,17 @@ const Footer = () => {
           </p> */}
         </div>
         <div className="flex items-center justify-center mt-4">
-            {/* <p className="text-lg mr-4">Follow us:</p> */}
-            <a
-              href="https://www.instagram.com/codenito.id/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-white hover:text-gray-400"
-            >
-              <FontAwesomeIcon icon={faInstagram} size="2x" />
-            </a>
-          </div>
+          {/* <p className="text-lg mr-4">Follow us:</p> */}
+          <a
+            href="https://www.instagram.com/codenito.id/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-white hover:text-gray-400"
+          >
+            <FontAwesomeIcon icon={faInstagram} size="2x" />
+          </a>
+        </div>
         <nav>
-
           <div className="grid grid-flow-col gap-4 justify-center my-4">
             <a href="#" className="text-white hover:text-gray-400">
               Home
@@ -45,7 +44,7 @@ const Footer = () => {
 
         <div className="text-center">
           <hr className="bg-[#151D20] my-4 py-3" />
-          
+
           <p className="text-lg mt-4">Codenito © 2023. All Rights Reserved</p>
         </div>
       </div>
