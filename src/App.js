@@ -6,7 +6,7 @@ import { Route, Routes } from "react-router-dom";
 
 function App() {
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen ">
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
