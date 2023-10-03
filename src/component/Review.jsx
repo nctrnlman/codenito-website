@@ -6,6 +6,7 @@ import {
   MDBTypography,
 } from "mdb-react-ui-kit";
 
+
 function Review() {
   return (
     <div className="flex justify-center items-center h-[100vh] text-center">
