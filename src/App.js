@@ -3,6 +3,7 @@ import Navbar from "./component/Navbar";
 import Footer from "./component/Footer";
 import Home from "./pages/Homepage";
 import { Route, Routes } from "react-router-dom";
+import 'tailwindcss/tailwind.css'; 
 
 function App() {
   return (
