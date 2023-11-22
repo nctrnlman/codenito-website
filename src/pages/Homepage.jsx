@@ -3,6 +3,7 @@ import Banner from "../component/Banner";
 import About from "../component/About";
 import Carousel from "../component/Carousel";
 import Review from "../component/Review";
+import Contact from "../component/Contact";
 
 function Homepage() {
   return (
@@ -11,6 +12,7 @@ function Homepage() {
       <About />
       <Carousel />
       <Review className="flex justify-center items-center h-screen" />
+      <Contact />
     </div>
   );
 }
