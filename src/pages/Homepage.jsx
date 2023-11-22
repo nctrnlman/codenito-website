@@ -11,8 +11,8 @@ function Homepage() {
       <Banner />
       <About />
       <Carousel />
-      <Review />
-      <Contact/>
+      <Review className="flex justify-center items-center h-screen" />
+      <Contact />
     </div>
   );
 }
