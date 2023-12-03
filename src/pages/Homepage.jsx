@@ -11,7 +11,7 @@ function Homepage() {
       <Banner />
       <About />
       <Carousel />
-      <Review className="flex justify-center items-center h-screen" />
+      <Review />
       <Contact />
     </div>
   );

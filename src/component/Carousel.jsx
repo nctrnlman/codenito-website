@@ -30,17 +30,22 @@ function Carousel() {
   }, [scrollX, width, direction]);
 
   return (
-    <div className="py-20">
+    <div className="py-20 bg-white">
+      <div className="mx-auto p-10 items-center flex justify-center">
+        <h1 className="text-5xl font-bold inline border-b-4 border-grey text-black">
+          Portofolio
+        </h1>
+      </div>
       <motion.div
         ref={carousel}
-        className="cursor-grab"
+        className="cursor-grab pt-10"
         whileTap={{ cursor: "grabbing" }}
         style={{ transform: `translateX(-${scrollX}px)` }}
       >
         <motion.div
           drag="x"
           dragConstraints={{ right: 0, left: -width }}
-          className="flex"
+          className="flex rounded-md gap-4 "
         >
           {images.map((image) => {
             return (
@@ -54,7 +59,8 @@ function Carousel() {
                 <img
                   src={image}
                   alt=""
-                  className="w-full h-full border-r-[2rem] pointer-events-none"
+                  className="w-full h-full pointer-events-none rounded-lg"
+                  style={{ maxWidth: "100%", maxHeight: "100%" }}
                 />
               </motion.div>
             );
