@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import Image1 from "../assets/logo-cn/logo-light.png";
 import { Squash as Hamburger } from "hamburger-react";
 import "font-awesome/css/font-awesome.min.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faInstagram } from "@fortawesome/free-brands-svg-icons";
 
 function Navbar() {
   const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -26,7 +28,7 @@ function Navbar() {
               rel="noopener noreferrer"
               className="text-white mr-4"
             >
-              <i className="fab fa-instagram text-2xl"></i>
+              <FontAwesomeIcon icon={faInstagram} size="2x" />
             </a>
           </div>
 
@@ -37,7 +39,7 @@ function Navbar() {
 
           <div className="menu hidden md:flex items-center space-x-4">
             <ul className="text-white flex space-x-4">
-              <li>About</li>
+              <li href="#contact">About</li>
               <li>Portfolio</li>
               <li>Team</li>
               <li>Review</li>

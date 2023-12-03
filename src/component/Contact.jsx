@@ -12,14 +12,19 @@ function Contact() {
   };
 
   return (
-    <div className="contact-container">
-      <div className="flex-1 flex items-center justify-center bg-gradient-to-r from-gray-50 via-lightgray to-gray-50">
-        <h1 className="text-black font-montserrat italic font-light text-6xl">
-          Have a project! <br /> Let’s discuss
+    <div id="contact" className="contact-container my-20">
+      <div className="flex-1 items-center w-3/4 p-6 mx-auto">
+        <h1 className="text-5xl font-bold inline border-b-4 border-grey text-black">
+          Let’s discuss
         </h1>
       </div>
       <div className="flex-1 flex items-center justify-center bg-url(<path-to-image>) bg-cover bg-center border border-white rounded-lg backdrop-blur-md relative">
-        <div className="absolute inset-0 bg-url(<path-to-grain-image>) opacity-10"></div>
+        {/* <div className="absolute inset-0 bg-url(<path-to-grain-image>) opacity-10"></div> */}
+
+        <div
+          className="absolute inset-0 bg-url(<path-to-grain-image>) opacity-10"
+          style={{ pointerEvents: "none" }}
+        ></div>
         <form className="w-3/4 p-6" onSubmit={handleSubmit}>
           <div className="mb-4">
             <label htmlFor="name" className="text-white text-lg">
