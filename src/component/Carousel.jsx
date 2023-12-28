@@ -8,29 +8,25 @@ const images = importAll(
 
 function Carousel() {
   const [width, setWidth] = useState(0);
-  const [scrollY, setScrollY] = useState(0);
+  const [scrollX, setScrollX] = useState(0);
   const carousel = useRef();
 
   useEffect(() => {
     setWidth(carousel.current.scrollWidth - carousel.current.offsetWidth);
-  }, [width]);
+  }, [scrollX, width]);
 
-  const handleScrollDirection = () => {
-    const newScrollY = window.scrollY;
-    const newDirection = newScrollY > scrollY ? 1 : -1;
-
-    // Calculate new scrollY value using modulo for looping
-    setScrollY((newScrollY + width * newDirection) % width);
+  const handleDragEnd = (event, info) => {
+    const newPos = scrollX + info.point.x;
+    if (newPos < 0) {
+      // Reached the beginning, loop to the end
+      setScrollX(width);
+    } else if (newPos > width) {
+      // Reached the end, loop to the beginning
+      setScrollX(0);
+    } else {
+      setScrollX(newPos);
+    }
   };
-
-  useEffect(() => {
-    window.addEventListener('scroll', handleScrollDirection);
-
-    return () => {
-      window.removeEventListener('scroll', handleScrollDirection);
-    };
-  }, [scrollY]);
-
   return (
     <div className="py-20 bg-white">
       <div className="mx-auto p-10 items-center flex justify-center">
@@ -42,7 +38,9 @@ function Carousel() {
         ref={carousel}
         className="cursor-grab pt-10"
         whileTap={{ cursor: 'grabbing' }}
-        style={{ transform: `translateX(-${scrollY}px)` }}
+        onDragEnd={handleDragEnd}
+        whileHover={{ scale: 1.02, transition: { duration: 0.5 } }}
+        style={{ transform: `translateX(-${scrollX}px)` }}
       >
         <motion.div
           drag="x"
