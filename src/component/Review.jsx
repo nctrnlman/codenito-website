@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useState } from "react";
 import { MDBCard, MDBCardBody, MDBTypography } from "mdb-react-ui-kit";
+import Draggable from "react-draggable";
 
 const dummyReviews = [
   {
@@ -45,30 +46,55 @@ const dummyReviews = [
     sourceTitle: "Review Site",
   },
 ];
+
+function getRandomPosition() {
+  const xPos = Math.random() * 900; // Adjust as needed (1000 - card width)
+  const yPos = Math.random() * 600; // Adjust as needed (700 - card height)
+  return { x: xPos, y: yPos };
+}
+
+function ReviewCard({ review }) {
+  return (
+    <Draggable
+      key={review.id}
+      defaultPosition={getRandomPosition()}
+      bounds={{ top: 0, left: 0, right: 1000, bottom: 700 }}
+      scale={1}
+    >
+      <MDBCard
+        className="max-w-md mx-auto mb-4 md:mb-0 transform transition-transform duration-300 hover:scale-105"
+      >
+        <MDBCardBody>
+          <MDBTypography blockquote className="mb-0">
+            <p className="text-justify text-base">{review.content}</p>
+            <footer className="blockquote-footer pt-4 ">
+              {review.author}{" "}
+              <cite title="Source Title " className="text-black">
+                {review.sourceTitle}
+              </cite>
+            </footer>
+          </MDBTypography>
+        </MDBCardBody>
+      </MDBCard>
+    </Draggable>
+  );
+}
+
 function Review() {
   return (
-    <div className="flex justify-center flex-col items-center h-screen max-w-7xl  mx-auto">
-      <div className="p-5 ">
+    <div className="flex justify-center flex-col items-center h-screen max-w-7xl mx-auto">
+      <div className="p-5">
         <h1 className="text-5xl font-bold inline border-b-4 border-grey text-black">
           Our Review
         </h1>
       </div>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+      <div className="flex flex-col md:flex-row flex-wrap">
         {dummyReviews.map((review) => (
-          <MDBCard key={review.id} className="max-w-md mx-auto">
-            <MDBCardBody>
-              <MDBTypography blockquote className="mb-0">
-                <p className="text-justify text-base">{review.content}</p>
-                <footer className="blockquote-footer pt-4 ">
-                  {review.author}{" "}
-                  <cite title="Source Title " className="text-black">
-                    {review.sourceTitle}
-                  </cite>
-                </footer>
-              </MDBTypography>
-            </MDBCardBody>
-          </MDBCard>
+          <ReviewCard key={review.id} review={review} />
         ))}
+      </div>
+      <div className="mt-4 text-center text-3xl font-bold" style={{ color: 'black' }}>
+        Try Dragging Us
       </div>
     </div>
   );
