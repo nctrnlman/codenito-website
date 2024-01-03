@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { MDBCard, MDBCardBody, MDBTypography } from "mdb-react-ui-kit";
 import Draggable from "react-draggable";
 
@@ -47,6 +47,8 @@ const dummyReviews = [
   },
 ];
 
+const STORAGE_KEY = "reviewCardPosition";
+
 function getRandomPosition() {
   const xPos = Math.random() * 900; // Adjust as needed (1000 - card width)
   const yPos = Math.random() * 600; // Adjust as needed (700 - card height)
@@ -54,16 +56,28 @@ function getRandomPosition() {
 }
 
 function ReviewCard({ review }) {
+  const storedPosition =
+    JSON.parse(localStorage.getItem(STORAGE_KEY)) || getRandomPosition();
+  const [position, setPosition] = useState(storedPosition);
+
+  useEffect(() => {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(position));
+  }, [position]);
+
+  const handleDrag = (e, ui) => {
+    const { x, y } = ui;
+    setPosition({ x, y });
+  };
+
   return (
     <Draggable
       key={review.id}
-      defaultPosition={getRandomPosition()}
-      bounds={{ top: 0, left: 0, right: 1000, bottom: 700 }}
+      defaultPosition={position}
+      onDrag={handleDrag}
+      bounds={{ top: 0, left: 0, right: 700, bottom: 200 }}
       scale={1}
     >
-      <MDBCard
-        className="max-w-md mx-auto mb-4 md:mb-0 transform transition-transform duration-300 hover:scale-105"
-      >
+      <MDBCard className="max-w-md mx-auto mb-4 md:mb-0 transform transition-transform duration-300 hover:scale-105 cursor-pointer">
         <MDBCardBody>
           <MDBTypography blockquote className="mb-0">
             <p className="text-justify text-base">{review.content}</p>
@@ -82,8 +96,8 @@ function ReviewCard({ review }) {
 
 function Review() {
   return (
-    <div className="flex justify-center flex-col items-center h-screen max-w-7xl mx-auto">
-      <div className="p-5">
+    <div className="flex justify-center flex-col items-center h-screen max-w-7xl mx-auto py-[100px]">
+      <div className="py-20">
         <h1 className="text-5xl font-bold inline border-b-4 border-grey text-black">
           Our Review
         </h1>
@@ -93,7 +107,10 @@ function Review() {
           <ReviewCard key={review.id} review={review} />
         ))}
       </div>
-      <div className="mt-4 text-center text-3xl font-bold" style={{ color: 'black' }}>
+      <div
+        className="my-10 text-center text-3xl font-bold"
+        style={{ color: "black" }}
+      >
         Try Dragging Us
       </div>
     </div>
