@@ -4,7 +4,7 @@ import logo from "../assets/codenito-logo/icon-dark.png";
 function About() {
   return (
     <div
-      className="lg:flex justify-center items-center min-h-screen bg-white p-4"
+      className="lg:flex justify-between items-center min-h-screen max-w-8xl bg-white p-4"
       id="about"
     >
       <div className="lg:w-1/2 flex justify-center items-center">
