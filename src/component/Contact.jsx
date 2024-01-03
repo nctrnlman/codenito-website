@@ -12,7 +12,7 @@ function Contact() {
   };
 
   return (
-    <div id="contact" className="contact-container my-[200px] bg-white">
+    <div id="contact" className="contact-container my-[201px] bg-white">
       <div className="flex-1 items-center w-3/4 p-6 mx-auto">
         <h1 className="text-5xl font-bold inline border-b-4 border-grey text-black">
           Let’s discuss
